@@ -1,0 +1,135 @@
+[
+  
+    {
+
+      "title"    : "주니어 개발자가 개발할 때 더 개선할 여지는 없는지 고민해보자",
+      "url"      : "/2025/04/17/%EC%A3%BC%EB%8B%88%EC%96%B4-%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80-%EA%B0%9C%EB%B0%9C%ED%95%A0-%EB%95%8C-%EB%8D%94-%EA%B0%9C%EC%84%A0%ED%95%A0-%EC%97%AC%EC%A7%80%EB%8A%94-%EC%97%86%EB%8A%94-%EC%A7%80-%EA%B3%A0%EB%AF%BC%ED%95%B4%EB%B3%B4%EC%84%B8%EC%9A%94",
+      "category" : "커리어",
+      "tags"     : "주니어개발자, 성장, 코드개선, 성능최적화, 쉬운코드, 클린코드, 개발문화",
+      "date"     : "2025-04-17 00:00:00 +0900",
+      "discription" : "주니어 개발자로서 코드 작성 시 성능, 안전성, 리소스 등 다양한 관점에서 &#39;이게 최선일까?&#39;를 고민하는 습관의 중요성을 예제와 함께 설명합니다."
+
+    } ,
+  
+    {
+
+      "title"    : "모든 것을 의심하자, 삽질 이후... (feat. 부하테스트 툴)",
+      "url"      : "/2024/11/15/%EB%AA%A8%EB%93%A0-%EA%B2%83%EC%9D%84-%EC%9D%98%EC%8B%AC%ED%95%98%EC%9E%90-%EC%82%BD%EC%A7%88%EC%9D%B4%ED%9B%84-feat-%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%88%B4",
+      "category" : "개발",
+      "tags"     : "부하테스트, nGrinder, Apache Bench, 성능 테스트, 삽질",
+      "date"     : "2024-11-15 00:00:00 +0900",
+      "discription" : "부하 테스트 툴(nGrinder, Apache Bench)의 결과와 실제 애플리케이션의 요청 수가 다른 현상을 발견하고 원인을 분석합니다. 테스트 툴의 결과를 맹신하지 말고 모든 것을 의심해야 한다는 교훈을 얻었습니다."
+
+    } ,
+  
+    {
+
+      "title"    : "게이밍 데스크탑으로 홈서버 운영하기",
+      "url"      : "/2024/10/24/%EA%B2%8C%EC%9D%B4%EB%B0%8D-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91%EC%9C%BC%EB%A1%9C-%ED%99%88%EC%84%9C%EB%B2%84-%EC%9A%B4%EC%98%81%ED%95%98%EA%B8%B0",
+      "category" : "홈서버",
+      "tags"     : "홈서버, wsl, docker, 네트워크, 토이프로젝트",
+      "date"     : "2024-10-24 00:00:00 +0900",
+      "discription" : "클라우드 서비스의 비용 부담으로 인해 남는 게이밍 데스크탑을 활용하여 홈서버를 구축한 경험을 공유합니다. WSL과 Docker를 이용하여 리눅스 환경을 구성하고 토이 프로젝트를 운영하는 과정을 소개합니다."
+
+    } ,
+  
+    {
+
+      "title"    : "JVM 메모리 할당 효율성 높이기: Bump pointer allocation과 TLAB",
+      "url"      : "/2024/09/18/jvm-bump-pointer-allocation-and-thread-local-allocation-buffer",
+      "category" : "JVM",
+      "tags"     : "jvm, tlab, bump the pointer, memory allocation, performance",
+      "date"     : "2024-09-18 00:00:00 +0900",
+      "discription" : "JVM은 멀티스레드 환경에서 메모리 할당 시 충돌을 방지하고 효율성을 높이기 위해 Bump pointer allocation과 TLAB(Thread-Local Allocation Buffer) 기술을 사용합니다. 이 글에서는 두 기술의 원리와 장점을 알아봅니다."
+
+    } ,
+  
+    {
+
+      "title"    : "의미가 완벽하게 같다면 응답 필드 이름도 같게하자",
+      "url"      : "/2024/09/16/%EC%9D%98%EB%AF%B8%EA%B0%80-%EC%99%84%EB%B2%BD%ED%95%98%EA%B2%8C-%EA%B0%99%EB%8B%A4%EB%A9%B4-%EC%9D%91%EB%8B%B5-%ED%95%84%EB%93%9C-%EC%9D%B4%EB%A6%84%EB%8F%84-%EA%B0%99%EA%B2%8C%ED%95%98%EC%9E%90",
+      "category" : "API, 개발",
+      "tags"     : "api, 필드명, 일관성, 개발문화, 협업",
+      "date"     : "2024-09-16 00:00:00 +0900",
+      "discription" : "API 응답에서 의미가 같은 필드는 동일한 이름을 사용해야 한다는 교훈을 얻었습니다. 필드 이름이 다를 경우 발생하는 혼란과 비효율을 줄이고, 일관성 있는 API를 설계하는 것의 중요성을 강조합니다."
+
+    } ,
+  
+    {
+
+      "title"    : "잘못 알고 있었던 직렬화와 역직렬화",
+      "url"      : "/2024/09/11/%EC%9E%98%EB%AA%BB-%EC%95%8C%EA%B3%A0-%EC%9E%88%EC%97%88%EB%8D%98-%EC%A7%81%EB%A0%AC%ED%99%94%EC%99%80-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94",
+      "category" : "CS",
+      "tags"     : "직렬화, 역직렬화, json, serialization, deserialization, java",
+      "date"     : "2024-09-11 00:00:00 +0900",
+      "discription" : "직렬화와 역직렬화의 개념을 바로잡습니다. 객체를 바이트코드뿐만 아니라 JSON, XML 등 저장하거나 전송할 수 있는 형태로 변환하는 과정과 그 반대 과정을 예시와 함께 설명합니다."
+
+    } ,
+  
+    {
+
+      "title"    : "빅테크 수석 개발자가 알려주는 일(코딩) 잘하는 방법",
+      "url"      : "/2024/09/11/%EB%B9%85%ED%85%8C%ED%81%AC-%EC%88%98%EC%84%9D-%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80-%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%9D%BC-%EC%BD%94%EB%94%A9-%EC%9E%98%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95",
+      "category" : "커리어",
+      "tags"     : "일잘하는법, 업무추정, 개발자, 커리어, 성장",
+      "date"     : "2024-09-11 00:00:00 +0900",
+      "discription" : "유튜브 영상을 보고 빅테크 수석 개발자가 알려주는 업무 추정 방법에 대해 정리한 글입니다. 섣부른 대답 대신 충분히 조사하고, 예상 시간에 3배를 곱하여 신뢰를 잃지 않는 방법을 제안합니다."
+
+    } ,
+  
+    {
+
+      "title"    : "2024 DLCA Tech-Tree CON 컨퍼런스 후기 - 첫 컨퍼런스 방문 😄",
+      "url"      : "/2024/09/11/2024-dlca-tech-tree-con-%EC%BB%A8%ED%8D%BC%EB%9F%B0%EC%8A%A4-%ED%9B%84%EA%B8%B0",
+      "category" : "컨퍼런스",
+      "tags"     : "컨퍼런스, dlca, tech-tree-con, 후기, 개발자, 커리어",
+      "date"     : "2024-09-11 00:00:00 +0900",
+      "discription" : "2024 DLCA Tech-Tree CON 컨퍼런스에 처음으로 참석한 후기입니다. 테오님, 이동욱(향로)님, 이장원(페퍼톤스)님의 세션을 통해 개발자로서의 성장과 커리어에 대한 깊은 인사이트를 얻을 수 있었습니다."
+
+    } ,
+  
+    {
+
+      "title"    : "[Spring] @RestControllerAdvice에서 body 로깅으로 남기기",
+      "url"      : "/2024/05/11/spring-restcontrolleradvice-%EC%97%90%EC%84%9C-body-%EB%A1%9C%EA%B9%85%EC%9C%BC%EB%A1%9C-%EB%82%A8%EA%B8%B0%EA%B8%B0",
+      "category" : "Spring",
+      "tags"     : "spring, spring boot, restcontrolleradvice, filter, contentcachingrequestwrapper, logging, exception handling",
+      "date"     : "2024-05-11 00:00:00 +0900",
+      "discription" : "@RestControllerAdvice에서 예외 발생 시 HttpServletRequest의 body를 로깅하려 할 때 발생하는 문제를 다룹니다. InputStream이 한 번만 읽을 수 있는 이유를 설명하고, ContentCachingRequestWrapper와 커스텀 필터를 사용하여 이 문제를 해결하는 방법을 제시합니다."
+
+    } ,
+  
+    {
+
+      "title"    : "다시 깨닫는 영속성 컨텍스트와 DB 격리 레벨의 중요성",
+      "url"      : "/2024/02/21/%EB%8B%A4%EC%8B%9C-%EA%B9%A8%EB%8B%AB%EB%8A%94-%EC%98%81%EC%86%8D%EC%84%B1-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%9D%98-%EC%A4%91%EC%9A%94%EC%84%B1",
+      "category" : "JPA, Spring",
+      "tags"     : "jpa, 영속성 컨텍스트, db 격리 레벨, 동시성, 분산락, spring",
+      "date"     : "2024-02-21 00:00:00 +0900",
+      "discription" : "분산락을 이용한 동시성 제어 코드 작성 중 발생한 문제를 통해 영속성 컨텍스트와 DB 격리 레벨의 중요성을 다시 한번 깨달았습니다. 문제 원인 분석과 해결 과정을 공유합니다."
+
+    } ,
+  
+    {
+
+      "title"    : "AWS Lambda를 활용한 이미지 리사이징 적용기",
+      "url"      : "/2024/02/21/lamda-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-%EC%A0%81%EC%9A%A9%EA%B8%B0",
+      "category" : "AWS, Serverless",
+      "tags"     : "aws, lambda, s3, api gateway, serverless, image resizing, presigned url",
+      "date"     : "2024-02-21 00:00:00 +0900",
+      "discription" : "S3, Lambda, API Gateway를 이용하여 이미지 업로드 및 리사이징 프로세스를 개선한 경험을 공유합니다. Presigned URL을 활용하여 보안을 강화하고, 서버의 부담을 줄이는 방법을 자세히 설명합니다."
+
+    } ,
+  
+    {
+
+      "title"    : "Java의 final은 어디에 사용할 수 있을까?",
+      "url"      : "/2024/01/07/java-%EC%9D%98-final-%EC%9D%80-%EC%96%B4%EB%94%94%EC%97%90-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C",
+      "category" : "Java",
+      "tags"     : "java, final, 불변성, immutable",
+      "date"     : "2024-01-07 00:00:00 +0900",
+      "discription" : "자바의 final 키워드는 클래스, 메서드, 변수에 사용하여 재할당을 막을 수 있습니다. 이 글에서는 final의 다양한 사용법과 주의할 점을 예제와 함께 자세히 알아봅니다."
+
+    } 
+  
+]

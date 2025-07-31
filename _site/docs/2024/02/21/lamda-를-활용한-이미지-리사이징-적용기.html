@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en" ><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Jekyll v4.3.3" /><meta property="og:title" content="Lamda 를 활용한 이미지 리사이징 적용기" /><meta name="author" content="Colin Holzman" /><meta property="og:locale" content="en_US" /><meta name="description" content="2024.02.21 - AWS Lambda 를 활용한 이미지 리사이징 적용기" /><meta property="og:description" content="2024.02.21 - AWS Lambda 를 활용한 이미지 리사이징 적용기" /><link rel="canonical" href="http://localhost:4000/2024/02/21/lamda-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-%EC%A0%81%EC%9A%A9%EA%B8%B0" /><meta property="og:url" content="http://localhost:4000/2024/02/21/lamda-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-%EC%A0%81%EC%9A%A9%EA%B8%B0" /><meta property="og:site_name" content="김민식 기술블로그" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2024-02-21T00:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Lamda 를 활용한 이미지 리사이징 적용기" /><meta name="twitter:site" content="@" /><meta name="twitter:creator" content="@Colin Holzman" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Colin Holzman"},"dateModified":"2024-02-21T00:00:00+09:00","datePublished":"2024-02-21T00:00:00+09:00","description":"2024.02.21 - AWS Lambda 를 활용한 이미지 리사이징 적용기","headline":"Lamda 를 활용한 이미지 리사이징 적용기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/02/21/lamda-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-%EC%A0%81%EC%9A%A9%EA%B8%B0"},"url":"http://localhost:4000/2024/02/21/lamda-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-%EC%A0%81%EC%9A%A9%EA%B8%B0"}</script><title> Lamda 를 활용한 이미지 리사이징 적용기 - 김민식 기술블로그</title><link rel="shortcut icon" href="/favicon.ico"><link rel="alternate" type="application/atom+xml" title="김민식 기술블로그" href="/atom.xml"><link rel="alternate" type="application/json" title="김민식 기술블로그" href="http://localhost:4000/feed.json" /><link rel="sitemap" type="application/xml" title="sitemap" href="/sitemap.xml" /><style> *,:after,:before{box-sizing:border-box;background-color:inherit;color:inherit;margin:0}body{font-family:-apple-system,BlinkMacSystemFont,"avenir next",avenir,helvetica,"helvetica neue",ubuntu,roboto,noto,"segoe ui",arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5;font-size:1rem;color:#16171a}nav ul{border-right:1px solid #edf2f7}a{color:#000;text-decoration-skip-ink:auto;text-decoration:underline}pre{margin:.5rem 0;padding:.5rem}.post p{margin:.5rem 0}.post h1,.post h2,.post h3,.post h4{margin:1rem 0}.post h2:first-child,.project h2:first-child,.photo h2:first-child{margin-top:0}.meta{margin:2rem 0}code,pre{background:#ecedee}code{padding:.1rem}pre code{border:none}pre{padding:1rem;overflow-x:auto}img{max-width:100%}hr{background:#000;height:1px;border:0}header{flex-basis:10rem;flex-grow:1;position:relative}header a{text-decoration:none}header li{margin-bottom:.2rem;text-align:right;margin-right:2rem}header a.active{font-weight:bold}header,section{padding:1rem}blockquote{font-style:italic;border-left:5px solid #ececec;padding-left:1rem}h1,h2,h3,h4,h5{line-height:1;margin:1rem 0;font-weight:600}section h1:first-child{margin-top:0}strong,b{font-weight:bold}.photos ul{list-style:none}.photos li{margin-bottom:1.5rem}.photo picture,.project picture{margin-bottom:.5rem}.posts ul,header ul{list-style:none;padding:0}.posts li{align-items:center;display:flex;justify-content:space-between;margin-bottom:.5rem}.posts li a,.posts li div,.projects li a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none}.posts li time,.projects li time{padding-left:1rem;white-space:nowrap;font-variant-numeric:tabular-nums}main{display:flex;flex-wrap:wrap;max-width:60rem;margin:0 auto 2rem auto;padding:1rem}.title{margin:2rem auto 0 auto;max-width:60rem;padding-left:12rem;font-size:24px}.title a{text-decoration:none;font-weight:bold}@media screen and (max-width: 45rem){header li{display:inline;margin-right:1rem}.logo{padding-bottom:1rem}header ul{border-bottom:1px solid #edf2f7;padding-bottom:2rem}nav ul{border-right:0px}.photos ul{margin-top:.5rem}}section{flex-basis:0;flex-grow:999;min-width:70%;display:flex;flex-direction:column}.section-nav{background-color:#fff;margin:5px 0;padding:10px 30px;border:1px solid #e8e8e8;border-radius:3px}figcaption{font-size:smaller}.pagination{margin-top:1.5rem;display:flex;align-items:center;gap:1rem;margin-left:auto}.pagination .page_number{margin-right:1rem}.pagination .page_number .current{font-weight:bold}.pagination img{width:24px;height:24px;display:block;padding:4px}.pagination img.disabled{opacity:.3}</style><script async src="https://www.googletagmanager.com/gtag/js?id=UA-150864545-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-150864545-1'); </script></head><body><div class="title"> <a href="/">김민식 기술블로그</a></div><main role="main"><header role="banner"><nav role="navigation"><ul><li><a href="/" >Posts</a></li><li><a href="/about" >About</a></li><li><a href="/resume" >Resume</a></li><li><a href="/search" >Search</a></li><li><a href="/atom.xml" >Rss</a></li></ul></nav></header><section class="post"><h2>Lamda 를 활용한 이미지 리사이징 적용기</h2><div class="toc"><ol id="toc" class="section-nav"><li class="toc-entry toc-h1"><a href="#20240221---aws-lambda-를-활용한-이미지-리사이징-적용기">2024.02.21 - AWS Lambda 를 활용한 이미지 리사이징 적용기</a><ol><li class="toc-entry toc-h3"><a href="#들어가면서">들어가면서</a></li><li class="toc-entry toc-h3"><a href="#문제">문제</a></li><li class="toc-entry toc-h3"><a href="#해결">해결</a></li><li class="toc-entry toc-h3"><a href="#방안-1">방안 1</a></li><li class="toc-entry toc-h3"><a href="#방안-2">방안 2</a><ol><li class="toc-entry toc-h4"><a href="#flow-1">FLOW 1</a></li><li class="toc-entry toc-h4"><a href="#flow-2">FLOW 2</a></li></ol></li><li class="toc-entry toc-h3"><a href="#방안-3">방안 3</a></li><li class="toc-entry toc-h3"><a href="#방안-4">방안 4</a></li><li class="toc-entry toc-h2"><a href="#개발과정">개발과정</a><ol><li class="toc-entry toc-h3"><a href="#s3와-cloudwatch-의-권한을-가진-새로운-정책-생성하기">S3와 CloudWatch 의 권한을 가진 새로운 정책 생성하기</a></li><li class="toc-entry toc-h3"><a href="#lambda-함수-생성하기">Lambda 함수 생성하기</a><ol><li class="toc-entry toc-h4"><a href="#이미지-리사이징-코드">이미지 리사이징 코드</a></li><li class="toc-entry toc-h4"><a href="#업로드-용-presigneduri-생성-코드">업로드 용 PresignedURI 생성 코드</a></li></ol></li><li class="toc-entry toc-h3"><a href="#api-gateway">API Gateway</a></li><li class="toc-entry toc-h3"><a href="#번외-api-gateway-사용자-지정-도메인-설정하기">번외, API Gateway 사용자 지정 도메인 설정하기</a><ol><li class="toc-entry toc-h4"><a href="#사용하려고-하는-도메인에-acm-ssl-인증서-발급받기-with-aws가-아닌-다른-네임서버-사용중">사용하려고 하는 도메인에 ACM SSL 인증서 발급받기 with AWS가 아닌 다른 네임서버 사용중</a></li><li class="toc-entry toc-h4"><a href="#사용자지정-도메인-등록하기">사용자지정 도메인 등록하기</a></li><li class="toc-entry toc-h4"><a href="#사용자-지정-도메인와-api-gateway-매핑하기">사용자 지정 도메인와 API Gateway 매핑하기</a></li><li class="toc-entry toc-h4"><a href="#번외">번외</a></li></ol></li><li class="toc-entry toc-h3"><a href="#참고">참고</a></li></ol></li></ol></li></ol></div><div class="content"><h1 id="20240221---aws-lambda-를-활용한-이미지-리사이징-적용기">2024.02.21 - AWS Lambda 를 활용한 이미지 리사이징 적용기</h1><h3 id="들어가면서">들어가면서</h3><p>현재 진행하고 있는 프로젝트에는 이미지 업로드 기능이 있다. 클라이언트가 API 키를 이용하여 Cloudnary 에 이미지를 업로드 한 후 업로드 된 이미지 URI와 포스팅하려고 하는 내용과 함께 서버에 등록하는 방식이다. 하지만 이러한 방식은 다소 문제가 일어날 요지가 있어 이미지 업로드 과정을 개선해보았다.</p><h3 id="문제">문제</h3><p>클라이언트 (프론트엔드) 가 미리 정의된 API 키를 이용하여 이미지서버 (<strong>Cloudnary</strong>) 에 이미지를 바로 저장하고 있다. 즉, 클라이언트가 이미지 저장에 대한 모든 권한을 가지고 있는 셈이다. 이때 API 키는 클라이언트에 노출되어있기때문에 KEY가 탈취된다면 언제든지 누군가 사용해서 이미지를 업로드 할 수 있는 문제가 생긴다. 또한 현재 프로젝트에서 사용되는 이미지 사이즈는 최대 500px 임에도 불구하고 클라이언트로 부터 원본 이미지를 저장한 후 저장된 원본이미지를 그대로 사용하고 있다. 원본 사이즈 크기를 사용할 필요가 없음에도 불구하고 불필요하게 이미지 다운로드 용량을 낭비하고 있다.</p><ol><li>보안적인 문제로 인해 클라이언트가 아닌 서버에서 이미지 저장을 처리해야 한다.</li><li>불필요한 네트워크 낭비를 방지하고자 요청할 때는 리사이징된 작은 사이즈의 이미지를 요청할 수 있도록 한다.</li></ol><h3 id="해결">해결</h3><ol><li><p>S3 이미지 저장에 대한 권한은 일시간동안만 사용가능한 업로드 용 Presigned URI 를 만들어 해당 URI를 통해 클라이언트가 이미지를 업로드 할 수 있게 하여 클라이언트가 업로드에 대한 모든 권한을 가질 수 없도록 하였다.</p></li><li><p>API 서버에서 하지 않아도 외부에서 리사이징 작업을 할 수 있기 위해서 S3 와 Lambda 를 이용하여 이미지 리사이징에 대한 처리를 하였다.</p></li></ol><p>위와 같은 해결은 쉽게 나오진 않았다. 아래의 상황을 고려한 후 최종적으로 S3 와 Lambda, API Gateway 를 이용한 이미지 처리방식을 채택하였다.</p><h3 id="방안-1">방안 1</h3><p>먼저 처음 생각한 이미지 처리 방식이다. <img src="https://velog.velcdn.com/images/kmss6905/post/39d255a6-d037-4aa2-840b-440147e60296/image.png" alt="" /></p><p>직관적으로 생각한 방식이다. 클라이언트가 이미지(최대 3개까지) multipart 방식으로 API 서버로 이미지를 업로드 하면, 서버는 S3에 권한을 가진 IAM 사용자의 AccessKey 와 SecretKey 를 이용하여 S3에 이미지를 저장한다. 저장 후에는 저장된 S3 이미지 URI를 저장하려고 하는 컨텐츠 정보와 함께 데이터베이스에 저장한다.</p><p>이 과정이 모두 완료되면 클라이언트에 성공 응답(200)을 한다.</p><p>이렇게 한다면 이미지 저장에 대한 권한은 서버에 있기 때문에 1번에 대한 문제가 해결된다. 또한 이미지 리사이징도 서버에서 하기 때문에 이 또한 문제가 될 상황은 없어 보인다.</p><p>하지만 클라이언트의 이미지 요청 이후 2, 3, 4번 의 응답이 늦어지면 늦어질 수록 최종 클라이언트로 가는 응답 역시 늦어질 수 밖에 없다.</p><p>그래서 이미지 리사이징 처리를 다른 곳에서 할 수 있는 방안을 생각해보았다.</p><p>(2번과 3번의 과정을 비동기 요청으로 할 경우 위와 같은 문제를 해결할 수 있을 것 같다. 하지만 비동기는 아직 익숙치 않기 때문에 그보다는 다른 방법으로 해결하기로 했다. 추후에 시간이 된다면 비동기에 대한 부분도 다루어 보도록 하겠다)</p><h3 id="방안-2">방안 2</h3><p><img src="https://velog.velcdn.com/images/kmss6905/post/4890d484-47ca-491d-9aba-fc86dba254e8/image.png" alt="" /></p><p>방안 1에 비해서는 구조가 복잡해 보인다. S3 이외에 Lambda 가 추가되었다. 크게 두 가지의 FLOW가 존재한다.</p><h4 id="flow-1">FLOW 1</h4><ol><li>클라이언트가 API서버로 이미지를 전송한다.</li><li>API 서버는 클라이언트로 부터 받은 이미지를 S3에 업로드 한다.</li><li>S3에 저장된 이미지 URI를 요청받는 컨텐츠와 함께 DB에 저장한다.</li><li>저장이 완료되면 클라이언트로 성공 응답(200) 을 보낸다.</li></ol><h4 id="flow-2">FLOW 2</h4><ol><li>S3에 이미지가 저장될 경우 이미지 리사이징을 담당하는 Lambda 함수로 Events를 보낸다.</li><li>Lambda 함수는 저장된 S3 이미지를 가져와 리사이징 작업을 한다.</li><li>리사이징 작업이 끝나면 크기별로 S3에 저장한다.</li></ol><p>참고로 FLOW 1 번과 FLOW 2은 별개로 진행된 다.</p><p>그리고 서버는 더 이상 이미지 리사이징 작업을 하지 않아도 된다. 최소한 리사이징 작업으로 인해 응답이 지연되지는 않는다. 하지만 S3에 이미지를 저장하는 건 여전히 API 서버가 담당하고 있다.</p><h3 id="방안-3">방안 3</h3><p><img src="https://velog.velcdn.com/images/kmss6905/post/f114ee16-fdfc-4beb-96ec-812756743cde/image.png" alt="" /></p><p><img src="https://velog.velcdn.com/images/kmss6905/post/72766403-160f-42e5-aa86-53d738928f1e/image.png" alt="" /></p><p>방안 2보다 훨씬 복잡해졌다.</p><p>방안2와 다른 점은 이미지저장을 더 이상 서버에서 하지 않는다. 대신 서버에서는 이미지를 저장할 수 있는 Presigned URI 를 생성하도록 S3에 요청한다.</p><p>클라이언트는 이 Presigned URI를 이용해 서버가 아닌 바로 S3에 이미지를 업로드한다. 이후 S3에 업로드 되어 진행되는 리사이징 과정은 Lambda 를 통해 이루어진다. (방안 2와 같다)</p><p>이후에는 Presigned URI 와 함께 추가 저장할 컨텐츠 정보를 서버로 전달합니다. 서버는 이미지 URI 를 저장한 후 클라이언트로 성공응답(200)을 보낸다.</p><p>Presigned URI 의 경우 20분의 유효시간을 정했다.</p><pre><code class="language-java">public class AWSPresignedUriService(){
+
+    private final AmazonS3 s3;
+    
+    public AWSPresignedUriService(final AmazonS3 s3){
+        this.s3 = s3;
+    }
+    
+	public String generatePresignedUri(String bucketName, String filePath){
+		Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MINUTE, 20); // 20분의 유효시간
+        return s3.generatePresigenedUri(bucketName, filePath, calendar.getTime(), HttpMethod.PUT).toString();
+	}
+}
+
+</code></pre><p>20분의 유효시간이 끝나면 발급받은 Presigned URI 는 더 이상 사용할 수 없다. 이제 서버가 이미지와 관련된 작업을 하는 건 S3에 Presigned URI 를 생성하기 위해 요청하는 작업만 있다.</p><p>하지만 아직까지 이미지 처리와 관련해서 서버에서 프로그래밍 방식으로 Presigned URI를 생성하기 때문에 버킷 이름이나 파일 경로를 바꾸기 위해서는 서버 코드를 수정해야하는 단점이 존재한다.</p><p>이미지와 관련된 작업은 사실 크게 비지니스 로직에 벗어나지 않음에도 불구하고 새로운 Presigend URI를 만들기 위해 API 서버 코드를 수정하여 배포하고 싶지는 않았다.</p><h3 id="방안-4">방안 4</h3><p>이미지 리사이징 Lambda 와 더불어 Presigned URI 를 생성하는 Lambda 를 추가한 후 API Gateway 를 만들어 Lambda 함수를 API 형태로 노출시킨다.</p><p>이로써 더 이상 API 서버에서는 이미지와 관련된 작업을 더 이상 하지 않게 되었다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/d07a2405-4b82-4eea-b1d5-06c661dedea4/image.png" alt="" /></p><p><img src="https://velog.velcdn.com/images/kmss6905/post/04bf8d8e-f9df-447c-9c82-cad7290956e8/image.png" alt="" /></p><p>또한 API Gateway 는 “수신한 API 호출 1백만 건 무료” 이기 때문에 우리 프로젝트에 사용하기에는 충분했다.</p><p>만약 새로운 Bucket 에 대해서 Presigned URI 을 생성하고 싶다면 서버코드는 전혀 건들이지 않고 Lambda 함수만 수정하면 되는 장점이 생겼다. 이제 더 이상 이미지와 관련된 작업은 API 서버에서 생각하지 않아도 되었다.</p><h2 id="개발과정">개발과정</h2><h3 id="s3와-cloudwatch-의-권한을-가진-새로운-정책-생성하기">S3와 CloudWatch 의 권한을 가진 새로운 정책 생성하기</h3><p>리사이징을 담당하는 람다 함수와 이미지 업로드 가능하도록 하는 Presigned URI 를 만들기 위해서는 S3에 권한이 있어야한다.</p><p>이미지 리사이징을 담당하는 람다 함수의 경우 S3 로 부터 Event 를 받아 S3 이미지를 조회한 후 이미지 사이즈 별로 S3에 업로드 해야하기 때문에 S3 GET, PUT 에 대해 허용권한이 있어야한다.</p><p>IAM &gt; 정책 &gt; 정책 생성 으로 들어가 필요한 권한을 설정해준다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/6df34801-e732-4850-80fc-993ea89c03bc/image.png" alt="" /></p><p>참고로 Cloudwatch 에서 람다 이벤트에 대한 로그가 수집될 수 있도록 필요한 권한 역시 설정한다.</p><p>정책을 생성했으니 이제 Role(역할)을 생성해야한다. Lambda 와 같은 AWS 리소스에 일시적으로 권한을 부여할 수 있는 데 Role 을 부여함으로써 가능하다. 또한 Role은 Policy와 연결되어야 사용할 수 있기 때문에 필요한 Lambda 가 사용할 역할을 만든다.</p><p>역할은 IAM &gt; 역할 &gt; 역할 생성 에 들어가서 만들면 된다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/2e27fe29-17f8-4a57-9448-3c9b6dac53bd/image.png" alt="" /></p><p><img src="https://velog.velcdn.com/images/kmss6905/post/91a23969-31e8-48a3-81a5-137622cb3931/image.png" alt="" /></p><p>권한 추가 항목에서는 아까 만든 정책(위의 스샷에서는 안보이지만 정책이름을 LambdaS3Policy 로 하였다) 선택한다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/df398e10-c78a-4e84-8248-cfa4197b787a/image.png" alt="" /> 역할 이름을 넣고 역할생성 버튼을 눌러 역할을 생성한다.</p><h3 id="lambda-함수-생성하기">Lambda 함수 생성하기</h3><p>Lambda &gt; 함수 &gt; 함수 생성에 들어가 Lambda 함수를 생성한다. <img src="https://velog.velcdn.com/images/kmss6905/post/f6fb8db0-6930-4df5-847b-3d026d1d1ea5/image.png" alt="" /></p><p><img src="https://velog.velcdn.com/images/kmss6905/post/b36c9288-c795-42af-a8bf-32021ca5863d/image.png" alt="" /></p><p>이때 Lambda 생성시 실행역할을 아까 만들었던 LambdaS3Role 로 선택한다. (먼저 Lambda 를 만들고 추구 Lambda &gt; 구성 &gt; 권한 &gt; 편집 항목에서 원하는 역할로 바꿀 수 있기 때문에 무엇을 먼저 만들지는 상관없다.)</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/794873a8-723d-4e95-8c91-fa5b0e05357b/image.png" alt="" /> <img src="https://velog.velcdn.com/images/kmss6905/post/6836952d-53e1-44fd-864e-c097c8877c9c/image.png" alt="" /></p><h4 id="이미지-리사이징-코드">이미지 리사이징 코드</h4><pre><code class="language-javascript">import {S3Client, GetObjectCommand, PutObjectCommand} from '@aws-sdk/client-s3';
+import {Readable} from 'stream';
+import sharp from 'sharp';
+import util from 'util';
+import convert from 'heic-convert';
+
+const s3 = new S3Client({region: 'ap-northeast-2'});
+const widths = [80, 500];
+
+function parseBucketInfoFromEvent(event) {
+  console.log(`Event: ${JSON.stringify(event)}`);
+  const record = event.Records[0].s3;
+  const srcBucket = record.bucket.name;
+  const srcKey = decodeURIComponent(record.object.key.replace(/\+/g, " "));
+  return {
+    srcBucket,
+    srcKey,
+    dstBucket: `${srcBucket}-resized`,
+    dstKey: `${srcKey}.jpg`,
+  };
+}
+
+// Fetch object from S3
+async function fetchObject({bucket, key}) {
+  const params = {Bucket: bucket, Key: key};
+  try {
+    const response = await s3.send(new GetObjectCommand(params));
+    const contentType = response.ContentType;
+    console.log(`ContentType: ${contentType}`);
+    if (!(response.Body instanceof Readable)) {
+      throw new Error('Expected a stream in the response body');
+    }
+    return response;
+  } catch (error) {
+    console.error(`Error fetching object ${key} from bucket ${bucket}:`, error);
+    throw error;
+  }
+}
+
+function verifyImageType(contentType, dstKey) {
+  if (!isImage(contentType)) {
+    throw new Error(`not support contentType = ${contentType} / dstKey = ${dstKey}`);
+  }
+}
+
+async function processAndUploadImages({
+  dstBucket,
+  dstKey,
+  response
+}) {
+  const contentType = response.ContentType;
+  const contentBuffer = Buffer.concat(await response.Body.toArray());
+
+  verifyImageType(contentType, dstKey);
+
+  for (const width of widths) {
+    let processedImageBuffer;
+    // HEIC 이미지의 경우 변환 처리
+    if (contentType === 'image/heic') {
+      console.log("heic file")
+      const convertedBuffer  = await convertHeicToJpeg(contentBuffer);
+      processedImageBuffer = await resizeImage(convertedBuffer, width, contentType);
+    }else{
+      processedImageBuffer = await resizeImage(contentBuffer, width, contentType);
+    }
+
+    await uploadResizedImage(dstBucket, `${width}/${dstKey}`, processedImageBuffer);
+  }
+}
+
+// HEIC 이미지를 JPEG로 변환
+async function convertHeicToJpeg(buffer) {
+  try {
+    return await convert({
+      buffer: buffer, // HEIC 파일의 Buffer
+      format: 'JPEG', // HEIC to JPEG
+      quality: 1 // 품질 설정 (0 ~ 1)
+    });
+  } catch (error) {
+    console.error('Error converting HEIC to JPEG:', error);
+    throw error;
+  }
+}
+
+// Resize image
+async function resizeImage(buffer, width) {
+  try {
+    return sharp(buffer)
+    .resize(width, null, {fit: 'contain'}) // height 는 width 에 자동적으로 맞춰짐
+    .jpeg({quality: 80}) // 퀄리티 ( 0 ~ 100 )
+    .withMetadata() // 원본 metadata 그대로 가지도록 함
+    .toBuffer();
+  } catch (error) {
+    console.error('Error resizing image:', error);
+    throw error;
+  }
+}
+
+// Upload resized image to S3
+async function uploadResizedImage(bucket, key, buffer) {
+  const params = {
+    Bucket: bucket,
+    Key: key,
+    Body: buffer,
+    ContentType: 'image/jpeg',
+  };
+  try {
+    await s3.send(new PutObjectCommand(params));
+    console.log(`Successfully uploaded ${key} to ${bucket}`);
+  } catch (error) {
+    console.error(`Error uploading ${key} to ${bucket}:`, error);
+    throw error;
+  }
+}
+
+function isImage( contentType) {
+  return contentType.startsWith("image/");
+}
+
+// Lambda handler function
+export const handler = async (event) =&gt; {
+  console.log("이벤트 처리 중 ... :", util.inspect(event, {depth: 5}));
+  const {srcBucket, srcKey, dstBucket, dstKey} = parseBucketInfoFromEvent(event);
+  const response = await fetchObject({bucket: srcBucket, key: srcKey});
+  await processAndUploadImages({dstBucket, dstKey, response});
+};
+
+</code></pre><p>의존이 필요한 패키지들은 npm build 를 통해 설치한 후 zip 파일로 압축하여 업로드 한다.</p><p>코드를 간단하게 설명하면</p><ol><li>parseBucketInfoFromEvent(event) : 수신괸 S3 Events 로 부터 필요한 정보를 파싱(키, 버킷이름)</li><li>fetchObject(bucket, key): 버킷이름와 키를 이용하여 S3에 방급 저장된 이미지를 조회</li><li>processAndUploadImages(dstBucket, dstKey, response) : 가져온 이미지를 크기별(80, 500)로 리사이징 한 후 S3에 업로드</li></ol><p>sharp 는 이미지 포맷 변환을 지원한다.</p><p>하지만 HEIC 포멧의 이미지파일인 경우 Nokia의 HEIF 라이브러리 라이센스로 인해 Sharp를 사용하려면 libheif, libde265 및 x265를 지원하도록 컴파일된 전역 설치 libvips를 사용해야 한다고 한다. 관련해서 해결한 <a href="https://obviy.us/blog/sharp-heic-on-aws-lambda/">블로그</a>도 존재하지만, 나는 별도로 HEIC 를 JPG 로 바꾸는 라이브러리를 추가하여 해결했다.</p><p>조회한 이미지의 response.ContentType 의 경우가 “image/heic” 인 경우에는 jpg 로 변환 후 이미지 리사이징 작업을 하도록 했다.</p><h4 id="업로드-용-presigneduri-생성-코드">업로드 용 PresignedURI 생성 코드</h4><p>또 다른 람다함수를 만들고 아래의 코드를 추가한다. 만들 때 역할은 위에서 만든 역할 그대로 사용하였다.</p><pre><code class="language-javascript">import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getSignedUrl, S3RequestPresigner } from "@aws-sdk/s3-request-presigner";
+import { randomUUID } from 'crypto';
+
+const REGION = "리전";
+const BUCKET = "버킷이름";
+
+const createPresignedUrlWithClient = ({ region, bucket, key }) =&gt; {
+  const client = new S3Client({ region });
+  const command = new PutObjectCommand({ Bucket: bucket, Key: key });
+  return getSignedUrl(client, command, { expiresIn: 360000 });
+};
+
+export const handler = async (event, context, callback) =&gt; {
+    
+    const clientUrl = await createPresignedUrlWithClient({
+      region: REGION,
+      bucket: BUCKET,
+      key: randomUUID(),
+  	});
+    
+    return {
+      result: "SUCCESS",
+      data: [ clientUrl ]
+  	}
+  }
+};
+
+</code></pre><p>업로드용 PresignedURI 의 경우, 방안4 에 나온 구조에서 보듯이 API Gateway 로 요청이 온 후 연결된 Lambda 함수에서 응답해야 하기 때문에 생성된 presignedUri 를 리턴하고 있다.</p><h3 id="api-gateway">API Gateway</h3><p>이제 PresignedURI 만드는 람다함수를 API 로 노출시키기 위해 먼저 API Gateway를 만들어야 한다.</p><p>API Gateway 생성 HTTP API 선택 <img src="https://velog.velcdn.com/images/kmss6905/post/8720a760-672f-406d-96f8-142b14060b4c/image.png" alt="" /></p><p>이때 API Gateway가 Lambda 함수를 호출해야하기 때문에, 아까 만든 Lambda 함수를 지정한다. <img src="https://velog.velcdn.com/images/kmss6905/post/6af2f1af-ed04-485e-a132-796eea77994d/image.png" alt="" /></p><p>다음버튼을 눌러 계속 진행한다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/ba8f6638-5da9-4c65-b175-7cfe780e6974/image.png" alt="" /> 여기서 API Gateway의 메서드와 경로를 구성할 수 있다. 물론 만들고 나서 수정해도 상관없다. 나는 “GET /image/presigned-uri” 으로 경로를 설정했다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/6ff57e71-e3d7-4fe1-b3a9-a66de61d4e76/image.png" alt="" /></p><p>마지막으로 스테이지까를 정의한다. 이는 말그대로 스테이지 환경을 정의할 수 있으며 API 스테이지는 API ID 및 스테이지 이름으로 식별되며, API를 호출하는 데 사용되는 URL에 포함됩니다.</p><p>HTTP URI에 스테이지 변수를 사용하여 구성하는 자세한 사용법은 https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/http-api-stages.html 에 있으니 참고바란다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/3de90052-9fde-40b1-b480-01b40cfde42f/image.png" alt="" /> 새롭게 생성한 API를 볼 수 있다. 좀 전에 dev 라는 이름의 스테이지 이름을 사용하는 스테이지의 경우에는 현재 자동배포되지 않기 때문에 만약 dev 스테이지에도 배포를 원한다면 우측 상단에 있는 배포 버튼을 클릭하여 배포를 진행하면 된다.</p><p>이제 아래의 경로로 API 호출을 하면 https://{app_id}.execute-api.ap-northeast-2.amazonaws.com/image/presigned-uri</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/5af90a8a-ec1f-4ad3-9daa-9247135ccd62/image.png" alt="" /></p><p>Presigned URI 를 받는 것을 알 수 있다.</p><h3 id="번외-api-gateway-사용자-지정-도메인-설정하기">번외, API Gateway 사용자 지정 도메인 설정하기</h3><p>AWS 에서 제공하는 URI 주소 말고 사용자 지정 도메인 이름을 지정할 수 있다.</p><p>현재 itthatcat.xyz 도메인을 가비아 네임서버에 등록해놓은 상태이고 와일드 카드 인증서를 LetsEncrypted 를 통해 무료로 발급한 상태이다.</p><p>이제 img.itthatcat.xyz 의 새로운 서브도메인을 설정해보자. https://{app_id}.execute-api.ap-northeast-2.amazonaws.com/image/presigned-uri 로 호출하는 것이 아닌 https://img.itthatcat.xyz/image/presigned-uri 로 호출할 수 있도록 하자</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/a9232828-2798-4a3b-96f3-f8a25644cf16/image.png" alt="" /></p><p>도메인 이름에는 사용하고자 하는 도메인 이름을 입력한다. (당연히 사용하고자 하는 도메인에 대해서 구입이 완료되어야 한다.) 그리고 해당 도메인에 대해 발급한 인증서가 필요하다.</p><h4 id="사용하려고-하는-도메인에-acm-ssl-인증서-발급받기-with-aws가-아닌-다른-네임서버-사용중">사용하려고 하는 도메인에 ACM SSL 인증서 발급받기 with AWS가 아닌 다른 네임서버 사용중</h4><p><img src="https://velog.velcdn.com/images/kmss6905/post/b8530417-8bd5-45a2-ab68-f65d8b0bfac3/image.png" alt="" /></p><p>인증서의 경우 이미 만든 인증서를 가져와서 사용해도 좋지만, 나는 해당 도메인에 대해서는 새롭게 SSL 인증서를 만들기로 했다. 인증서가 여러개로 분산되어 관리의 포인트가 늘어난 다는 단점이 있지만, AWS ACM에서 만든 인증서의 경우 인증서의 갱신을 자동화할 수 있고 무료이다. 물론 원한다면 외부에서 사용된 인증서를 가져와서 사용할 수 있다. 다만 외부의 인증서의 경우 만료되었을 경우 갱신에 대한 로직은 대신해주지 않는다. <img src="https://velog.velcdn.com/images/kmss6905/post/3f3e7209-5812-432f-9911-68567fcabb32/image.png" alt="" /> <img src="https://velog.velcdn.com/images/kmss6905/post/2b10859e-4163-40a9-a015-fcaf4f7daf4a/image.png" alt="" /> <img src="https://velog.velcdn.com/images/kmss6905/post/96c9f5e4-61a9-4753-810c-85f1404c4667/image.png" alt="" /></p><p><img src="https://velog.velcdn.com/images/kmss6905/post/9e559799-443f-4c9f-a016-3acfb5a76bc0/image.png" alt="" /></p><p>이제 네임 서버에 CNAME 레코드를 만들면 된다. 이를 통해 DNS 검증을 받는 것이다.</p><p>이때 CNAME 레코드 등록시 호스트에는 _21jkddfu2j.img.itthatcat.xyz. 에서 호스트 이름인 _21jkddfu2j.img 까지만 입력해야한다. 그 외는 그대로 입력한다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/f453b237-a6c3-4daa-b9f3-6471e7ae87f8/image.png" alt="" /></p><p>만약 서브도메인이 아닌경우라면 _21jkddfu2j.itthatcat.xyz. 요렇게 될것이다. 그리고 CNAME 레코드 호스트는 _21jkddfu2j 입력하면 된다.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/737faa86-0b53-4f58-b85f-5aacd5288ad2/image.png" alt="" /> 어느 정도 시간이 지나면 이렇게 “검증 대기중”에서 “발급” 상태로 바뀐 것을 알 수있다.(CNAME 레코드를 추가하고 10분 내로 발급되었다)</p><h4 id="사용자지정-도메인-등록하기">사용자지정 도메인 등록하기</h4><p><img src="https://velog.velcdn.com/images/kmss6905/post/d8a9553f-3e64-4bc4-9c0b-b3c2fd0ac836/image.png" alt="" /></p><p>사용하려고 하는 도메인 이름과 발급받은 ACM 인증서를 등록합니다.</p><h4 id="사용자-지정-도메인와-api-gateway-매핑하기">사용자 지정 도메인와 API Gateway 매핑하기</h4><p><img src="https://velog.velcdn.com/images/kmss6905/post/30042006-107c-4c1f-9ec7-04a489474dd3/image.png" alt="" /> 이렇게 사용자 지정 도메인에 대해 새로운 API Gateway 도메인 이름이 생겼다. 이제 다시 가비아로 돌아와서 DNS 레코드를 추가해야한다. CNAME 레코드를 추가하여 img.itthatcat.xyz 로 접속했을 때 위의 가려진 도메인으로 이동할 수 있도록 해야한다. <img src="https://velog.velcdn.com/images/kmss6905/post/335b9fab-2683-42da-80ec-30db8a26c71a/image.png" alt="" /></p><p><img src="https://velog.velcdn.com/images/kmss6905/post/a55aad24-b12c-4d93-a321-ae55a0e7949e/image.png" alt="" /></p><p><img src="https://velog.velcdn.com/images/kmss6905/post/3df73ed4-3727-46a0-bbda-03a9709f7cad/image.png" alt="" /></p><p>매핑하려고 하는 API 를 선택한다.</p><p>이제 <code>https://img.itthatcat.xyz/image/presigned-uri</code> 로 요청해보자.</p><p><img src="https://velog.velcdn.com/images/kmss6905/post/d970e2c1-7162-44db-9cc8-93065eeb9f67/image.png" alt="" /></p><p>정상적으로 데이터가 잘 나오는 것을 알 수 있다.</p><h4 id="번외">번외</h4><p>현재는 API Gateway 앞단에 Cloudfront 를 구성한 후 Cloudfront -&gt; API Gateway -&gt; Lambda 로 호출하도록 구성한 상태이다. Cloudfront 역시 API Gateway 와 마찬가지로 AWS 에서 제공하는 도메인 이름이 아닌 새롭게 커스텀 도메인을 사용할 수 있으며 SSL 인증서 적용하는 방식도 같다.</p><hr /><h3 id="참고">참고</h3><p>https://obviy.us/blog/sharp-heic-on-aws-lambda/ https://docs.aws.amazon.com/ko_kr/acm/latest/userguide/troubleshooting-DNS-validation.html</p></div><span class="meta"><time datetime="2024-02-21T00:00:00+09:00">February 21, 2024</time> &middot; </span> <script type="module"> import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true }); </script></section></main></body></html>

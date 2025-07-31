@@ -1,0 +1,90 @@
+site: minshikkim
+url: https://minshikkim.com
+title: 김민식 기술블로그
+description: 공부하고 경험한 것을 기록합니다.
+author:
+  name: 김민식
+  email: minshik6905@gmail.com
+  linkedin: https://www.linkedin.com/in/minshikimdev
+  url: https://minshikkim.com
+permalink: pretty
+timezone: Asia/Seoul
+
+baseurl: ""
+
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class: "syntax"
+
+exclude:
+  - .jekyll-cache
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-toc
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+toc:
+  ordered_list: true
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:slug
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      defaults:
+        toc: true
+  - scope:
+      path: "assets/**/*.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "category/**"
+    values:
+      sitemap: false
+  - scope:
+      path: "page*/"
+    values:
+      sitemap: false
+  - scope:
+      path: "*.html"
+    values:
+      sitemap: false
+
+social:
+  name: minshikkim
+  links:
+    - https://www.linkedin.com/in/minshikimdev/
+
+paginate: 10
+paginate_path: "/page:num/"
