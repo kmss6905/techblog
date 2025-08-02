@@ -6,4 +6,4 @@ Gemfile.lock
 .DS_Store
 .jekyll-cache
 .git
-/gallery
+/gallery\n# Jekyll build output directory\n_site/
