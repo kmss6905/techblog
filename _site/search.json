@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "[Book] 랭체인으로 LLM 기반의 AI 서비스 개발하기",
+      "url"      : "/2025/08/02/%EB%8F%84%EC%84%9C-%EB%9E%AD%EC%B2%B4%EC%9D%B8%EC%9C%BC%EB%A1%9C-llm-%EA%B8%B0%EB%B0%98%EC%9D%98-ai-%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B8%B0",
+      "category" : "AI",
+      "tags"     : "LLM, LangChain, RAG, Book",
+      "date"     : "2025-08-02 00:00:00 +0900",
+      "discription" : ""
+
+    } ,
+  
+    {
+
       "title"    : "주니어 개발자가 개발할 때 더 개선할 여지는 없는지 고민해보자",
       "url"      : "/2025/04/17/%EC%A3%BC%EB%8B%88%EC%96%B4-%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80-%EA%B0%9C%EB%B0%9C%ED%95%A0-%EB%95%8C-%EB%8D%94-%EA%B0%9C%EC%84%A0%ED%95%A0-%EC%97%AC%EC%A7%80%EB%8A%94-%EC%97%86%EB%8A%94-%EC%A7%80-%EA%B3%A0%EB%AF%BC%ED%95%B4%EB%B3%B4%EC%84%B8%EC%9A%94",
       "category" : "커리어",

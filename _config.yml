@@ -86,5 +86,5 @@ social:
   links:
     - https://www.linkedin.com/in/minshikimdev/
 
-paginate: 10
+paginate: 20
 paginate_path: "/page:num/"
