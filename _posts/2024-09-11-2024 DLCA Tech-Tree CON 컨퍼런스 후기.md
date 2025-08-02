@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2024 DLCA Tech-Tree CON 컨퍼런스 후기 - 첫 컨퍼런스 방문 😄"
+title: "2024 DLCA Tech-Tree CON 컨퍼런스 후기"
 description: "2024 DLCA Tech-Tree CON 컨퍼런스에 처음으로 참석한 후기입니다. 테오님, 이동욱(향로)님, 이장원(페퍼톤스)님의 세션을 통해 개발자로서의 성장과 커리어에 대한 깊은 인사이트를 얻을 수 있었습니다."
 categories:
 - "컨퍼런스"
@@ -15,30 +15,27 @@ date: "2024-09-11 00:00:00 +0900"
 toc: true
 ---
 
-## 2024 DLCA Tech-Tree CON 컨퍼런스 후기 - 첫 컨퍼런스 방문 😄
+## 2024 DLCA Tech-Tree CON 컨퍼런스 후기
 
-<p align="center">
-  <img width="500" alt="스크린샷 2024-09-11 오후 8 05 07" src="{{ site.baseurl }}/assets/images/tech_conference_index.png">
-<br>
-  <em>세션 목록들이다. 가수분도 나온다고 하셔서 놀랐다</em>   
-</p>
+<div align="center">
+  <img src="/assets/images/tech_conference_index.png" width="500" alt="2024 DLCA Tech-Tree CON 세션 목록">
+  <br>
+  <em>세션 목록</em>
+</div>
+
+<br><br>
 
 내가 가고 싶은 테크 컨퍼런스를 찾던 와중 마음에 드는 세션이 보여 바로 신청했다.
 특히 미래의 개발자의 커리어를 어떻게 쌓으면 좋을까를 고민했었는 데 마침 나에게 딱 맞는 주제가 보여서 고민 없이 신청했다.
-
-~~물론 라이브 다시보기로도 볼 수 있지만 직접 가서 현장의 분위기를 느껴보고 싶었다. 현장에서는 바로 앞자리에 앉을 수 있어서 너무 좋았다 😃~~
 
 특히 테오님과 이동욱(향로)님 같은 경우에는 너무 유명하셔서 꼭 직접 보고 싶은 마음도 있었다. 
 하지만 면접 때문에 테오님 세션을 처음부터 듣지 못한 게 너무 아쉬웠다.
 
 ### 배운 것
 
-<p align="center">
-  <img width=70% alt="스크린샷 2024-09-11 오후 8 05 07" src="{{ site.baseurl }}/assets/images/IMG_5306.JPG">
-<br>
 
+![dd](/assets/images/IMG_5306.JPG)
 
-<!-- ~~용태님 세션은 중간부터 참여해서 전부 듣지는 못했지만~~ 인상깊었던 말들을 가져와봤다.  -->
 > _**개발만 하고 싶은 게 다른 걸 자꾸 시켜요? 여러분 그런 것도 다 개발이예요. 코드만 작성하고 그런 것만 개발인 게 아니예요. 회의하고 고민하고 등등 모두 다 개발하고 있는 거예요**_ <br> - _유용태(테오)_
 > <br><br>
 > _**제어할 수 없는 것에 힘쓰는 
@@ -52,7 +49,9 @@ toc: true
 이렇게 성장 할 수 있는 환경이 되지 못한다면 내가 스스로 나서서 스터디를 모집하거나 좋은 문화를 전파시켜 볼 수 있을 것이다.  
 (실제 동욱님도 개발자들이 전부 퇴사하고 스스로 좋은 개발문화를 만들려고 노력했고 동료들에게 먼저 전파하려고 하셨다.)
 
-<div align="center">
-    <img src="{{ site.baseurl }}/assets/images/IMG_5309.jpg" width=30%  align="center">
-    <img src="{{ site.baseurl }}/assets/images/IMG_5322.jpg" width=30%  align="center">
-</div>
+<table>
+  <tr>
+    <td><img src="/assets/images/IMG_5309.jpg" alt="세션 현장1" width="100%"></td>
+    <td><img src="/assets/images/IMG_5322.jpg" alt="세션 현장2" width="100%"></td>
+  </tr>
+</table>
