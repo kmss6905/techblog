@@ -1,4 +1,17 @@
-
+---
+layout: post
+title: "@Component와 @Bean의 차이"
+tags:
+  - spring
+  - bean
+  - component
+  - configuration
+  - 스프링
+  - 자바
+  - DI
+  - IoC
+date: "2024-01-03"
+---
 > 예제에서 사용한 모든 코드는 [Github Repository](https://github.com/kmss6905/blog/tree/main/ioc) 에 있다.
 
 # 스프링 빈 등록 방법: @Configuration, @Component, @Bean
