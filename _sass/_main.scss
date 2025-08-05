@@ -351,6 +351,17 @@ main {
       -webkit-tap-highlight-color: transparent;
     }
   }
+  .site-header .site-title {
+    display: none;
+  }
+  .site-header .category-nav {
+    display: block;
+  }
+  .site-header .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 section {
