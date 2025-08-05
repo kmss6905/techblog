@@ -125,4 +125,4 @@ public class CachingFilter extends OncePerRequestFilter {
 ```
 
 ### 참고
-* https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-message-conversion
+* [REST Clients :: Spring Framework](https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-message-conversion)

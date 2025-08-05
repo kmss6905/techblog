@@ -115,7 +115,7 @@ _@Configuration 클래스는 동일한 클래스 내의 다른 @Bean 메서드�
 
 ## 참고 자료
 --- 
-https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html
-https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html
-https://jojoldu.tistory.com/27
+- [Bean (Spring Framework 6.2.9 API)](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html)
+- [Using the @Bean Annotation :: Spring Framework](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html)
+- [@Bean vs @Component - 기억보단 기록을 - 티스토리](https://jojoldu.tistory.com/27)
 

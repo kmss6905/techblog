@@ -216,4 +216,4 @@ Java의 `final` 키워드는 **클래스, 메서드, 변수**에 사용하여 **
 
 ### 참조
 
-- [Baeldung - The final Keyword in Java](https://www.baeldung.com/java-final)
+- [The "final" Keyword in Java | Baeldung](https://www.baeldung.com/java-final)
