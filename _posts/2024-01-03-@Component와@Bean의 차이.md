@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "@Component와 @Bean의 차이"
+categories:
+- "Spring"
 tags:
   - spring
   - bean
@@ -11,6 +13,7 @@ tags:
   - DI
   - IoC
 date: "2024-01-03"
+toc: true 
 ---
 > 예제에서 사용한 모든 코드는 [Github Repository](https://github.com/kmss6905/blog/tree/main/ioc) 에 있다.
 
